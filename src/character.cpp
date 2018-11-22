@@ -6,7 +6,7 @@ Character::Character(int row, int col, Character* (*board)[31][28]) :
 	board(board)
 {}
 
-Character::~Character();
+Character::~Character() {}
 
 int Character::getRow() const {return row;}
 int Character::getCol() const {return col;}

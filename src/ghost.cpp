@@ -1,7 +1,7 @@
 #include "ghost.h"
 
 Ghost::Ghost(int row, int col, Character* (*board)[31][28], int timebox) :
-	Charcter(row, col, board),
+    Character(row, col, board),
 	points(200),
 	time_in_box(timebox),
 	is_eaten(false)
@@ -15,18 +15,18 @@ char Ghost::getImage() const {
     return IMAGE_GHOST;
 }
 
-Ghost::eaten(bool eat) {
+void Ghost::eaten(bool eat) {
 	is_eaten = eat;
 }
 
-Ghost::set_color(bool eaten) {
+void Ghost::set_color(bool eaten) {
 
 }
 
-Ghost::update_points() {
+void Ghost::update_points() {
 
 }
 
-Ghost::move(int row, int col) {
+void Ghost::move(int row, int col) {
 
 }

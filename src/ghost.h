@@ -6,8 +6,8 @@
 class Ghost : public Character
 {
 public:
-    Ghost(int row, int col, Character* (*board)[31][28]);
-    const static char IMAGE_PACMAN = 'P';
+    Ghost(int row, int col, Character* (*board)[31][28], int timebox);
+    const static char IMAGE_GHOST = 'G';
     virtual char getImage() const override;
     int get_time_in_box();
     void eaten(bool eat);
