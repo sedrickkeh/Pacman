@@ -9,14 +9,15 @@ using std::endl;
 #include <QObject>
 
 #include "Character.h"
-#include "Wall.h"
-#include "Food.h"
-#include "Pacman.h"
-#include "Ghost.h"
+#include "wall.h"
+#include "food.h"
+#include "pacman.h"
+#include "ghost.h"
 
 #include "gamewindow.h"
 #include "square.h"
 #include <string>
+#include <QTimer>
 
 class PacmanGame : public QObject {
     Q_OBJECT
@@ -39,19 +40,25 @@ private:
     int level;
 
     void load_map();
+    void init_block(int row, int col, char c);
     void load_high_score();
-    void refresh_frame();
 
     bool game_over();
     bool is_level_finished();
     bool exists_ghost_in_box();
 
+    void move_pacman();
     void update_score();
     void update_map();
     void back_to_starting_pos();
 
+    QTimer *timer;
+
+
 private slots:
     void process_user_input();
+    void refresh_frame();
+
 };
 
 #endif // PACMANGAME_H
