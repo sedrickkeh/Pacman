@@ -3,7 +3,7 @@
 Pacman::Pacman(int row, int col, Character* (*board)[31][28]) :
 	Character(row, col, board),
 	superpower(-1),
-	direction(0),
+    direction(Dir::LEFT),
 	has_eaten_piece(false)
 {}
 
@@ -11,7 +11,7 @@ int Pacman::get_superpower() {
 	return superpower;
 }
 
-int Pacman::get_direction() {
+Dir Pacman::get_direction() {
 	return direction;
 }
 
@@ -24,7 +24,7 @@ void Pacman::update_superpower(bool sup) {
 	superpower = sup;
 }
 
-void Pacman::update_direction(int dir) {
+void Pacman::update_direction(Dir dir) {
 	direction = dir;
 }
 

@@ -13,6 +13,7 @@ using std::endl;
 #include "food.h"
 #include "pacman.h"
 #include "ghost.h"
+#include "direction.h"
 
 #include "gamewindow.h"
 #include "square.h"
@@ -47,7 +48,8 @@ private:
     bool is_level_finished();
     bool exists_ghost_in_box();
 
-    void move_pacman();
+    void move_pacman(int r, int c);
+    void move_ghost(int r, int c, Ghost* g);
     void update_score();
     void update_map();
     void back_to_starting_pos();

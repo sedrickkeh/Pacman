@@ -2,6 +2,7 @@
 #define GHOST_H
 
 #include "character.h"
+#include "direction.h"
 
 class Ghost : public Character
 {
@@ -10,6 +11,7 @@ public:
     const static char IMAGE_GHOST = 'G';
     virtual char getImage() const override;
     int get_time_in_box();
+    void reduce_time_in_box();
     void eaten(bool eat);
     void set_color(bool eaten);
     void update_points();

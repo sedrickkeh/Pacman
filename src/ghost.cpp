@@ -11,6 +11,10 @@ int Ghost::get_time_in_box() {
 	return time_in_box;
 }
 
+void Ghost::reduce_time_in_box() {
+    time_in_box--;
+}
+
 char Ghost::getImage() const {
     return IMAGE_GHOST;
 }

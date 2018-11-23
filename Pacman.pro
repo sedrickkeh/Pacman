@@ -48,7 +48,8 @@ HEADERS += \
     src/wall.h \
     src/food.h \
     src/pacman.h \
-    src/ghost.h
+    src/ghost.h \
+    src/direction.h
 
 FORMS += \
         ui/mainwindow.ui \

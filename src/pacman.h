@@ -2,6 +2,7 @@
 #define PACMAN_H
 
 #include "character.h"
+#include "direction.h"
 
 class Pacman : public Character
 {
@@ -10,15 +11,15 @@ public:
     const static char IMAGE_PACMAN = 'P';
     virtual char getImage() const override;
     int get_superpower();
-    int get_direction();
+    Dir get_direction();
     void update_superpower(bool sup);
-    void update_direction(int dir);
+    void update_direction(Dir dir);
     void eats_piece(bool eat);
     void move(int row, int col);
 
 private:
     int superpower = -1;
-    int direction = 0;
+    Dir direction = Dir::LEFT;
     bool has_eaten_piece = false;
 };
 

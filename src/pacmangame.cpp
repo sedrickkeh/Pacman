@@ -17,7 +17,7 @@ PacmanGame::PacmanGame() :
 
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(refresh_frame()));
-    timer -> start(100);
+    timer -> start(300);
 }
 
 PacmanGame::~PacmanGame(){}
@@ -67,19 +67,28 @@ void PacmanGame::startGraphicUI() {
 }
 
 void PacmanGame::refresh_frame() {
-    std::cout << "kdasfjl" << std::endl;
-    move_pacman();
+    move_ghost(ghost1->getRow(), ghost1->getCol(), ghost1);
+    move_ghost(ghost2->getRow(), ghost2->getCol(), ghost2);
+    move_ghost(ghost3->getRow(), ghost3->getCol(), ghost3);
+    move_ghost(ghost4->getRow(), ghost4->getCol(), ghost4);
+    move_pacman(pacman->getRow(), pacman->getCol());
     update_map();
 }
 
-void PacmanGame::move_pacman() {
-    int dir = pacman->get_direction();
-    int row = pacman->getRow();
-    int col = pacman->getCol();
-    if (dir == 0) pacman->move(row-1, col);
-    else if (dir == 1) pacman->move(row+1, col);
-    else if (dir == 2) pacman->move(row, col-1);
-    else if (dir == 3) pacman->move(row, col+1);
+void PacmanGame::move_pacman(int r, int c) {
+    Dir dir = pacman->get_direction();
+    int row = r; int col = c;
+    if (dir == Dir::DOWN) pacman->move(row-1, col);
+    else if (dir == Dir::UP) pacman->move(row+1, col);
+    else if (dir == Dir::LEFT) pacman->move(row, col-1);
+    else if (dir == Dir::RIGHT) pacman->move(row, col+1);
+    if ((pacman->getRow() != r) || (pacman->getCol() != c)) board[r][c] = nullptr;
+}
+
+void PacmanGame::move_ghost(int r, int c, Ghost* g) {
+    if (g->get_time_in_box() > 0) {
+        g->reduce_time_in_box();
+    }
 }
 
 void PacmanGame::update_map() {
