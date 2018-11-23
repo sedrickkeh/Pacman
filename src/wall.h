@@ -6,6 +6,7 @@
 class Wall : public Character
 {
 public:
+    Wall(int row, int col, Character* (*board)[31][28]);
     const static char IMAGE_WALL = 'W';
     virtual char getImage() const override;
 };

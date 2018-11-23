@@ -12,6 +12,7 @@ public:
     int getRow() const;
     int getCol() const;
     virtual char getImage() const = 0;
+
 protected:
     int row, col;
     Character* (*board)[31][28];
