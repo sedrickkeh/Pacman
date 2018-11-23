@@ -4,6 +4,9 @@
 #include <QMainWindow>
 
 #include "gamewindow.h"
+#include <QImage>
+#include <QImage>
+#include <QPixmap>
 
 namespace Ui {
 class MainWindow;
